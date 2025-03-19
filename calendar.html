@@ -86,7 +86,7 @@
         </div>
 
         <div class="copy-container">
-            <input type="text" value="Pl@proom03KDigital." readonly>
+            <input type="text" id="password" value="Pl@proom03KDigital." readonly>
             <button onclick="copyPassword()">Copier</button>
         </div>
 
@@ -94,5 +94,17 @@
             <p>© 2025 Kardham Digital - Tous droits réservés</p>
         </div>
     </div>
+
+    <script>
+        function copyPassword() {
+            // Utilisation de l'API moderne Clipboard API
+            var copyText = document.getElementById("password");
+            navigator.clipboard.writeText(copyText.value).then(function() {
+                alert("Mot de passe copié : " + copyText.value);
+            }).catch(function(error) {
+                alert("Erreur lors de la copie : " + error);
+            });
+        }
+    </script>
 </body>
 </html>
