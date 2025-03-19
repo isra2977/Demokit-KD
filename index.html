@@ -35,6 +35,9 @@
         }
         .buttons {
             margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .button {
             background-color: #d32f2f; /* Rouge Kardham Digital */
@@ -46,6 +49,8 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
+            width: 250px; /* Limiter la largeur */
+            box-sizing: border-box;
         }
         .button:hover {
             background-color: #c62828;
@@ -73,8 +78,9 @@
         .copy-container input {
             padding: 5px;
             font-size: 16px;
-            width: 300px;
+            width: 90%; /* Ajuster à la largeur */
             margin-bottom: 10px;
+            box-sizing: border-box;
         }
         .copy-container button {
             padding: 5px 10px;
@@ -83,15 +89,32 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            width: 100%;
         }
         .copy-container button:hover {
             background-color: #c62828;
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
         .share-button {
             background-color: #4caf50;
         }
         .share-button:hover {
             background-color: #45a049;
+        }
+
+        /* Pour les petits écrans */
+        @media (max-width: 600px) {
+            .button {
+                width: 100%;
+            }
+            .button-group {
+                flex-direction: column;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -114,7 +137,7 @@
             <a href="https://login.microsoftonline.com/common/oauth2/authorize?client_id=00000002-0000-0ff1-ce00-000000000000&redirect_uri=https%3A%2F%2Foutlook.office365.com%2Fcalendar%2Fview%2Fmonth&resource=00000002-0000-0ff1-ce00-000000000000&response_mode=form_post&response_type=code+id_token&scope=openid&msafed=1&msaredir=1&client-request-id=1712e213-f1c3-b1e7-8ab8-4516d7fa5d98&protectedtoken=true&claims=%7b%22id_token%22%3a%7b%22xms_cc%22%3a%7b%22values%22%3a%5b%22CP1%22%5d%7d%7d%7d&login_hint=room-03%40kd-dws.net&nonce=638779886041172356.aa5daee8-de1a-48a2-8021-266da7574c4d&state=DcsxEoAwCABBouNzMAEJ4HMYSW3p96XY664BwF620kYFTC83u911CJHxNfWMmBlrOeaiQPFg9MGErJph0-SRbPUe_f2i_w" target="_blank">Accéder au calendrier</a>
             <div class="copy-container">
                 <input type="text" id="password" value="Pl@proom03KDigital." readonly>
-                <button onclick="copyPassword()">Copier le mot de passe</button>
+                <button onclick="copyPassword()">Copier</button>
             </div>
         </div>
 
@@ -122,8 +145,9 @@
             <h3>Schémas d'Architecture</h3>
             <p>Voici le lien pour visualiser les schémas d'architecture :</p>
             <img src="https://postimg.cc/JDvY8yz4" alt="Schémas d'Architecture" style="max-width: 100%; height: auto;">
-            <div>
-                <a href="mailto:?subject=Schémas d'Architecture - Kardham Digital&body=Voici le lien vers les schémas d'architecture : https://postimg.cc/JDvY8yz4" class="button share-button">Partager par mail</a>
+            <div class="button-group">
+                <a href="https://postimg.cc/JDvY8yz4" class="button" target="_blank">Voir le schéma</a>
+                <a href="mailto:?subject=Schémas d'Architecture - Kardham Digital&body=Voici le lien vers les schémas d'architecture : https://postimg.cc/JDvY8yz4" class="button share-button">Partager le schéma</a>
             </div>
         </div>
 
