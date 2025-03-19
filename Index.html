@@ -26,6 +26,7 @@
         }
         .header img {
             width: 150px;
+            margin-bottom: 20px;
         }
         h1 {
             color: #d32f2f; /* Rouge Kardham Digital */
@@ -54,24 +55,91 @@
             color: #999;
             margin-top: 40px;
         }
+        .step {
+            margin-top: 30px;
+            background-color: #fafafa; /* Gris clair */
+            padding: 15px;
+            border-left: 5px solid #d32f2f; /* Rouge Kardham Digital */
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .step h3 {
+            font-size: 20px;
+            color: #d32f2f;
+        }
+        .copy-container {
+            margin-top: 10px;
+        }
+        .copy-container input {
+            padding: 5px;
+            font-size: 16px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+        .copy-container button {
+            padding: 5px 10px;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .copy-container button:hover {
+            background-color: #c62828;
+        }
+        .share-button {
+            background-color: #4caf50;
+        }
+        .share-button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img src="/mnt/data/image.png" alt="Kardham Digital Logo">
-            <h1>Demokit</h1>
+            <img src="https://media.licdn.com/dms/image/v2/C4D0BAQHZCmUoVWrWjw/company-logo_200_200/company-logo_200_200/0/1630580235057/kardham_digital_logo?e=2147483647&v=beta&t=5Epzc45QjE0CEjsLb8MXx8UJ9hOkoez1ppQq6TRQa5E" alt="Kardham Digital Logo">
+            <h1>Demokit - Kardham Digital</h1>
         </div>
-        
+
         <div class="buttons">
-            <a href="#" class="button">Guide d'Utilisation</a>
-            <a href="#" class="button">Accès Calendrier</a>
-            <a href="#" class="button">Schémas d'Architecture</a>
+            <a href="guide.html" class="button">Guide d'Utilisation</a>
+            <a href="#calendar" class="button">Accès Calendrier</a>
+            <a href="#architecture" class="button">Schémas d'Architecture</a>
         </div>
-        
+
+        <div id="calendar" class="step">
+            <h3>Accès au Calendrier</h3>
+            <p>Voici le lien pour accéder au calendrier :</p>
+            <a href="https://login.microsoftonline.com/common/oauth2/authorize?client_id=00000002-0000-0ff1-ce00-000000000000&redirect_uri=https%3A%2F%2Foutlook.office365.com%2Fcalendar%2Fview%2Fmonth&resource=00000002-0000-0ff1-ce00-000000000000&response_mode=form_post&response_type=code+id_token&scope=openid&msafed=1&msaredir=1&client-request-id=1712e213-f1c3-b1e7-8ab8-4516d7fa5d98&protectedtoken=true&claims=%7b%22id_token%22%3a%7b%22xms_cc%22%3a%7b%22values%22%3a%5b%22CP1%22%5d%7d%7d%7d&login_hint=room-03%40kd-dws.net&nonce=638779886041172356.aa5daee8-de1a-48a2-8021-266da7574c4d&state=DcsxEoAwCABBouNzMAEJ4HMYSW3p96XY664BwF620kYFTC83u911CJHxNfWMmBlrOeaiQPFg9MGErJph0-SRbPUe_f2i_w" target="_blank">Accéder au calendrier</a>
+            <div class="copy-container">
+                <input type="text" id="password" value="Pl@proom03KDigital." readonly>
+                <button onclick="copyPassword()">Copier le mot de passe</button>
+            </div>
+        </div>
+
+        <div id="architecture" class="step">
+            <h3>Schémas d'Architecture</h3>
+            <p>Voici le lien pour visualiser les schémas d'architecture :</p>
+            <img src="https://postimg.cc/JDvY8yz4" alt="Schémas d'Architecture" style="max-width: 100%; height: auto;">
+            <div>
+                <a href="mailto:?subject=Schémas d'Architecture - Kardham Digital&body=Voici le lien vers les schémas d'architecture : https://postimg.cc/JDvY8yz4" class="button share-button">Partager par mail</a>
+            </div>
+        </div>
+
         <div class="footer">
             <p>© 2025 Kardham Digital - Tous droits réservés</p>
         </div>
     </div>
+
+    <script>
+        function copyPassword() {
+            var copyText = document.getElementById("password");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /* Pour les appareils mobiles */
+            document.execCommand("copy");
+            alert("Mot de passe copié : " + copyText.value);
+        }
+    </script>
 </body>
 </html>
